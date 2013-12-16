@@ -55,7 +55,7 @@ from setuptools import setup
 
 from makanai import get_version
 
-SCRIPTS=glob.glob('scripts/*.py')
+SCRIPTS=glob.glob('scripts/*')
 try:
     INSTALL_REQUIRES=[ r for r in open('requirements.txt').read().split('\n') if len(r)>0]
 except:
