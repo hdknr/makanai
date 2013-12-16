@@ -53,7 +53,7 @@ from setuptools import setup
 
 # - Meta Info
 
-from jose import get_version
+from makanai import get_version
 
 SCRIPTS=glob.glob('scripts/*.py')
 try:
