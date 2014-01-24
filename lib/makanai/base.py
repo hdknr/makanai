@@ -1,4 +1,4 @@
-from fabric.api import env,run,sudo,task
+from fabric.api import env,run,sudo,task,put,get
 
 try:
     from ilogue.fexpect import expect
@@ -9,3 +9,16 @@ except:
 @task
 def ps():
     sudo("ps ax")
+
+@task
+def send_file(src,dst=None):
+    if not dst:
+        dst = os.path.basename(src)
+
+    put(src,dst)
+
+@task
+def get_file(src,dst=None):
+    if not dst:
+        dst = '.' 
+    get(src,dst )
