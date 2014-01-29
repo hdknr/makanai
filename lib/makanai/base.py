@@ -1,4 +1,5 @@
 from fabric.api import env,run,sudo,task,put,get
+import os
 
 try:
     from ilogue.fexpect import expect
