@@ -6,7 +6,7 @@ try:
     from ilogue.fexpect import expecting, run as expect_run
 except:
     pass
-    
+
 @task
 def ps():
     sudo("ps ax")
