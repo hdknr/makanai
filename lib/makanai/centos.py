@@ -1,9 +1,14 @@
-from fabric.api import task, run
+from fabric.api import task, run, sudo
 from base import *
 
 @task
 def packages():
     run('rpm -qa')
+
+@task
+def chkconfig(name=''):
+    name = name and '| grep ' + name
+    sudo('chkconfig --list %s' % name )
 
 @task
 def yum_update():
