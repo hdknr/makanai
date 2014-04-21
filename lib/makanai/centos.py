@@ -19,6 +19,20 @@ def yum_check():
     run('sudo yum check-update --exclude=kernel* --exclude=grub*')
 
 @task
+def rpm_search(name):
+    run('rpm -qa | grep %s' % name)
+
+@task
+def rpm_list(name):
+    run('rpm -ql %s' % name)
+
+@task
 def version():
     run('more /etc/redhat-release')
     run('uname -a')
+    run('uptime')
+
+@task
+def chkconfig(name=None):
+    name = name and " | grep " + name or ''
+    sudo('chkconfig --list ' + name )
