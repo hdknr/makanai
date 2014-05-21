@@ -8,8 +8,12 @@ except:
     pass
 
 @task
-def ps():
-    sudo("ps ax")
+def ps(*args):
+    if args:
+        for key in args:
+            sudo("ps ax | grep %s" % key ) 
+    else:
+        sudo("ps ax")
 
 @task
 def send_file(src,dst=None):
